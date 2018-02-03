@@ -3,9 +3,10 @@
 const mongoose = require('mongoose');
 
 const alertsSchema = new mongoose.Schema({
-  userid: {type: String },
-  eventName: {type: String},
-  eventLocation: {type: String, default: 'Downtown Seattle'},
+  userid: {type: String /* , required: true  ,unique: true */},
+  eventName: {type: String},//concert, traffic, street block, emergency, free food truck, etc.
+  eventInfo: {type: String},//more details like: car crash or Parade until 3pm
+  eventLocation: {type: String, default: 'Downtown Seattle'},//expand on location options later?
   entryDate: {type: Date, default: Date.now},
 });
 
