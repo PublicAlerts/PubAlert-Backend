@@ -8,7 +8,6 @@ const morgan = require('morgan');
 
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-let MongoClient = require('mongodb').MongoClient;
 
 let usePort = process.env.PORT || 3000;
 
@@ -17,7 +16,7 @@ app.listen(usePort, () => {
 })
 
 // Connect to the db
-MongoClient.connect('mongodb://localhost:27017/passdb', function(err, db) {
+mongoose.connect('mongodb://wefqwefqwefqwefqwefqwefqwe:Qwerqwefiuqwfuhqweuofquhwef@ds123718.mlab.com:23718/wefqwfqwfqwfqwfqwf', function(err, db) {
   if(!err) {
     console.log('We are connected to mongo');
   }
@@ -27,10 +26,10 @@ app.use(morgan('dev'))
 app.use(require('./router/alerts-route.js'));
 
 //testing to show msg in browser
-app.use((req,res) => {
-  console.log('wth?');
-  res.send('Hello world!');
-});//good
+// app.use((req,res) => {
+//   console.log('wth?');
+//   res.send('Hello world!');
+// });//good
 
 
 app.use((err, req, res, next) => {
