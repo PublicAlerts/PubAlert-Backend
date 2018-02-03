@@ -11,7 +11,6 @@ router.post('/api/alerts', jsonParser, (req, res, next) => {
   newAlerts.save()
     .then(data => res.send(data)) //sending data back
     .catch(err => next({statusCode: 500, message: 'Unable to record your alert', error: err}));
-
 });
 
 router.get('/api/alerts', (req, res, next) => {
