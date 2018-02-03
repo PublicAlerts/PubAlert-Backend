@@ -17,7 +17,7 @@ app.listen(usePort, () => {
 })
 
 // Connect to the db
-MongoClient.connect('mongodb://localhost:27017/passdb1', function(err, db) {
+MongoClient.connect('mongodb://localhost:27017/passdb', function(err, db) {
   if(!err) {
     console.log('We are connected to mongo');
   }
@@ -58,6 +58,7 @@ app.use((err, req, res, next) => {
   res.sendStatus(500);
 });
 
+//instructor exaple:
 // export const stop = () => {
 //   return new Promise((resolve, reject) => {
 //     if(!state.isOn)

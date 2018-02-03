@@ -12,3 +12,6 @@ const alertsSchema = new mongoose.Schema({
 
 
 const Alerts = module.exports = mongoose.model('Alerts', alertsSchema);
+
+
+// echo '{"userid":"Max", "eventName":"concert", "eventInfo":"good event!"}' | http POST http://localhost:3000/api/alerts
