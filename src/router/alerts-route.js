@@ -14,4 +14,10 @@ router.post('/api/alerts', jsonParser, (req, res, next) => {
 
 });
 
+
+router.get('/api/alerts', (req, res, next) => {
+  console.log('HERE IN GET');
+
+});
+
 module.exports = router;

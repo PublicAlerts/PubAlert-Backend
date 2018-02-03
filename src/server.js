@@ -17,9 +17,9 @@ app.listen(usePort, () => {
 })
 
 // Connect to the db
-MongoClient.connect("mongodb://localhost:27017/passdb1", function(err, db) {
+MongoClient.connect('mongodb://localhost:27017/passdb1', function(err, db) {
   if(!err) {
-    console.log("We are connected to mongo");
+    console.log('We are connected to mongo');
   }
 });
 
@@ -30,7 +30,7 @@ app.use(require('./router/alerts-route.js'));
 
 // app.use((req,res) => {
 //   console.log('wth?');
-//   res.send("Hello world!");
+//   res.send('Hello world!');
 // });
 
 
