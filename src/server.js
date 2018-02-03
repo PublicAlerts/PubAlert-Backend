@@ -23,15 +23,14 @@ MongoClient.connect('mongodb://localhost:27017/passdb1', function(err, db) {
   }
 });
 
-
 app.use(morgan('dev'))
 app.use(require('./router/alerts-route.js'));
 
-
-// app.use((req,res) => {
-//   console.log('wth?');
-//   res.send('Hello world!');
-// });
+//testing to show msg in browser
+app.use((req,res) => {
+  console.log('wth?');
+  res.send('Hello world!');
+});//good
 
 
 app.use((err, req, res, next) => {
