@@ -18,7 +18,7 @@ router.post('/api/alerts', jsonParser, (req, res, next) => {
 router.get('/api/alerts', (req, res, next) => {
   console.log('HERE IN GET');
   let findObj = req.query || {};
-  Alerts.find(findObj)
+  Alert.find(findObj)
     .then(journal => res.send(journal))
     .catch(err => next({error: err}));
 });
