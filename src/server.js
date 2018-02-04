@@ -1,5 +1,3 @@
-//server big
-
 'use strict';
 
 const express = require('express');
@@ -15,7 +13,7 @@ app.listen(usePort, () => {
   console.log('__SERVER_UP__', usePort)
 })
 
-// Connect to the db
+// Connect to the db on mlab
 mongoose.connect('mongodb://passdb:FettyWap1738yeah@ds225078.mlab.com:25078/passdbmlab', function(err, db) {
   if(!err) {
     console.log('We are connected to mongo');
@@ -24,12 +22,6 @@ mongoose.connect('mongodb://passdb:FettyWap1738yeah@ds225078.mlab.com:25078/pass
 
 app.use(morgan('dev'))
 app.use(require('./router/alerts-route.js'));
-
-//testing to show msg in browser
-// app.use((req,res) => {
-//   console.log('wth?');
-//   res.send('Hello world!');
-// });//good
 
 
 app.use((err, req, res, next) => {
@@ -56,24 +48,6 @@ app.use((err, req, res, next) => {
 
   res.sendStatus(500);
 });
-
-//instructor exaple:
-// export const stop = () => {
-//   return new Promise((resolve, reject) => {
-//     if(!state.isOn)
-//     return reject(new Error('USAGE ERROR: the state is off'))
-//     return mongo.stop()
-//     .then(() => {
-//       state.http.close(() => {
-//         console.log('__SERVER_DOWN__')
-//         state.isOn = false
-//         state.http = null
-//         resolve()
-//       })
-//     })
-//     .catch(reject)
-//   })
-// }
 
 
 module.exports = app;
