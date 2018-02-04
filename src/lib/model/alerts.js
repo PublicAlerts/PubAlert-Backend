@@ -7,7 +7,7 @@ const alertsSchema = mongoose.Schema({
   eventName: {type: String},
   eventInfo: {type: String},
   eventLocation: {type: String},
-  // entryDate: {type: Date, default: Date.now},
+  entryDate: {type: Date, default: Date.now},
 });
 
 
@@ -15,3 +15,5 @@ module.exports = mongoose.model('alert', alertsSchema);
 
 
 // echo '{"userid":"Max", "eventName":"concert", "eventInfo":"very nice event", "eventLocation":"Tukwila"}' | http POST http://localhost:3000/api/alerts
+
+//http GET http://localhost:3000/api/alerts

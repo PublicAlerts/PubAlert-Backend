@@ -16,7 +16,7 @@ app.listen(usePort, () => {
 })
 
 // Connect to the db
-mongoose.connect('mongodb://wefqwefqwefqwefqwefqwefqwe:Qwerqwefiuqwfuhqweuofquhwef@ds123718.mlab.com:23718/wefqwfqwfqwfqwfqwf', function(err, db) {
+mongoose.connect('mongodb://passdb:FettyWap1738yeah@ds225078.mlab.com:25078/passdbmlab', function(err, db) {
   if(!err) {
     console.log('We are connected to mongo');
   }
