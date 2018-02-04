@@ -12,8 +12,3 @@ const alertsSchema = mongoose.Schema({
 
 
 module.exports = mongoose.model('alert', alertsSchema);
-
-
-// echo '{"userid":"Max", "eventName":"concert", "eventInfo":"very nice event", "eventLocation":"Tukwila"}' | http POST http://localhost:3000/api/alerts
-
-//http GET http://localhost:3000/api/alerts
