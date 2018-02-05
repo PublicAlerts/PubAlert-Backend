@@ -3,10 +3,12 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const cors = require('cors');
 
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
+app.use(cors());
 app.use(morgan('dev'))
 app.use(require('./router/alerts-route.js'));
 app.use(require('./error-handle.js'));
