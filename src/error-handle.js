@@ -23,4 +23,4 @@ module.exports = (err, req, res, next) => {
     return res.sendStatus(409);
 
   res.sendStatus(500);
-});
+};
