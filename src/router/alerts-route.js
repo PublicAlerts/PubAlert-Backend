@@ -30,6 +30,13 @@ router.get('/api/alerts/:id', (req, res, next) => {
     .catch(err => next({error: err}));
 });
 
+router.put('/api/alerts/:id', jsonParser, (req, res, next) => {
+  delete req.body._id;
+  Alert.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}) //new entry after updates
+  .then(data => res.send(data))
+  .catch(err => next({error: err}));
+});
+
 router.patch('/api/alerts/:id', jsonParser, (req, res, next) => {
   delete req.body._id;
   Alert.findOneAndUpdate({_id: req.params.id}, {$set: req.body}, {new: true}) //new entry after updates
@@ -37,10 +44,10 @@ router.patch('/api/alerts/:id', jsonParser, (req, res, next) => {
     .catch(err => next({error: err}));
 });
 
-router.put('/api/alerts/:id', jsonParser, (req, res, next) => {
-  delete req.body._id;
-  Alert.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}) //new entry after updates
-    .then(data => res.send(data))
+router.delete('/api/alerts/:id', (req, res, next) => {
+  console.log('We are in DEL request for ID ' + req.params.id);
+  Alert.remove({_id: req.params.id})
+    .then(data => res.send('The alerts entry with ID '+ req.params.id + ' has been deleted.'))
     .catch(err => next({error: err}));
 });
 
