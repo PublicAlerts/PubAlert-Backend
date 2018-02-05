@@ -1,5 +1,6 @@
+'use strict';
 
-app.use((err, req, res, next) => {
+module.exports = (err, req, res, next) => {
 
   console.error(err.message.toLowerCase());
 
