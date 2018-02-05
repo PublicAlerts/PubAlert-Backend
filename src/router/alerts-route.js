@@ -10,10 +10,10 @@ router.post('/api/alerts', jsonParser, (req, res, next) => {
   let newAlert = new Alert(req.body)
   console.log('NEW ALERT', newAlert);
   newAlert
-  .save()
-  .then(data => res.json(data))
-  .catch(err => next({statusCode: 500, message: 'Unable to record your alert', error: err}));
-  });
+    .save()
+    .then(data => res.json(data))
+    .catch(err => next({statusCode: 500, message: 'Unable to record your alert', error: err}));
+});
 
 router.get('/api/alerts', (req, res, next) => {
   console.log('HERE IN GET');
@@ -33,8 +33,8 @@ router.get('/api/alerts/:id', (req, res, next) => {
 router.put('/api/alerts/:id', jsonParser, (req, res, next) => {
   delete req.body._id;
   Alert.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}) //new entry after updates
-  .then(data => res.send(data))
-  .catch(err => next({error: err}));
+    .then(data => res.send(data))
+    .catch(err => next({error: err}));
 });
 
 router.patch('/api/alerts/:id', jsonParser, (req, res, next) => {
@@ -47,7 +47,8 @@ router.patch('/api/alerts/:id', jsonParser, (req, res, next) => {
 router.delete('/api/alerts/:id', (req, res, next) => {
   console.log('We are in DEL request for ID ' + req.params.id);
   Alert.remove({_id: req.params.id})
-    .then(data => res.send('The alerts entry with ID '+ req.params.id + ' has been deleted.'))
+    .then(data => res.send('The alerts entry with ID '+ req.params.id +
+    ' has been deleted.'))
     .catch(err => next({error: err}));
 });
 
