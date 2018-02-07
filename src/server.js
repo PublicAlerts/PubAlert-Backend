@@ -19,7 +19,7 @@ app.listen(usePort, () => {
   console.log('__SERVER_UP__', usePort)
 })
 
-// Connect to the db on mlab
+// Connect to the db on MLab
 mongoose.connect('mongodb://passdb:FettyWap1738yeah@ds225078.mlab.com:25078/passdbmlab', function(err, db) {
   if(!err) {
     console.log('We are connected to mongo');
