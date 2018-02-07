@@ -17,8 +17,11 @@ router.post('/api/alerts', jsonParser, (req, res, next) => {
 
 router.get('/api/alerts', (req, res, next) => {
   console.log('HERE IN GET');
-  let findObj = req.query || {};
-  Alert.find(findObj)
+  // let findObj = req.query || {};
+  Alert.find({
+    entryDate:{ //from my schema Date.now()
+      $gt:Date.now() - (24 * 60 * 60 * 1000), //making it GET just items GreaterThan 24hrs in miliseconds
+    }})
     .then(alerts => res.send(alerts))
     .catch(err => next({error: err}));
 });
