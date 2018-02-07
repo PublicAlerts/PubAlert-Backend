@@ -22,6 +22,7 @@ router.get('/api/alerts', (req, res, next) => {
     entryDate:{ //from my schema Date.now()
       $gt:Date.now() - (24 * 60 * 60 * 1000), //making it GET just items GreaterThan 24hrs in miliseconds
     }})
+    .sort([ ['entryDate', -1] ]) //sorts in order by entryDate time
     .then(alerts => res.send(alerts))
     .catch(err => next({error: err}));
 });
