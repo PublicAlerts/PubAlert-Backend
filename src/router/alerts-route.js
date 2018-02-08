@@ -48,6 +48,7 @@ router.patch('/api/alerts/:id', jsonParser, (req, res, next) => {
     .catch(err => next({error: err}));
 });
 
+
 router.delete('/api/alerts/:id', (req, res, next) => {
   console.log('We are in DEL request for ID ' + req.params.id);
   Alert.remove({_id: req.params.id})

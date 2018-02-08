@@ -8,6 +8,7 @@ const alertsSchema = mongoose.Schema({
   eventInfo: {type: String},
   eventLocation: {type: String},
   eventType: {type: String},
+  alertVotes: {type: Number, default: 0}, //for thimbs up or down on alerts
   entryDate: {type: Date, default: Date.now},
 });
 
